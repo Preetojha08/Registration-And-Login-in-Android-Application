@@ -1,3 +1,3 @@
 # Registration And Login in Android Application
 
-Registartion and Login with SQl database on free server (000Webhosting).
+New user Registartion and Login with username or email and password with SQl database managed by PHPMYADMIN over free server (000Webhosting).
