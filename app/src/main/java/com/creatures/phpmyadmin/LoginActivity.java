@@ -40,10 +40,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String username,password;
+                String username,password,email;
 
                 username=tiet_username.getText().toString().trim();
                 password=tiet_password.getText().toString().trim();
+                email=tiet_username.getText().toString().trim();
+
 
                 if (username.equals("") && password.equals("") )
                 {
@@ -53,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     //Email ID with Password
                     //Toast.makeText(LoginActivity.this, "Valid Email address", Toast.LENGTH_SHORT).show();
-
+                    Log.i("Email", "Email is taken");
                     progress_bar_log.setVisibility(View.VISIBLE);
                     Handler handler = new Handler(Looper.getMainLooper());
                     handler.post(new Runnable() {
@@ -63,12 +65,12 @@ public class LoginActivity extends AppCompatActivity {
                             //Creating array for parameters
                             String[] field = new String[2];
 
-                            field[0] = "username";
+                            field[0] = "email";
                             field[1] = "password";
 
                             //Creating array for data
                             String[] data = new String[2];
-                            data[0] = username;
+                            data[0] = email;
                             data[1] = password;   //192.168.1.101 http://192.168.64.2/test_login/signup.php http://192.168.64.2/ http://192.168.64.2/new_post_test/post_signup.php http://192.168.64.2/test_login/signup.php
                             PutData putData = new PutData("https://preetojhadatabasetrail.000webhostapp.com/signup_login_test/login.php", "POST", field, data);
                             if (putData.startPut()) {
@@ -112,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             //Creating array for data
                             String[] data = new String[2];
-                            data[0] = email;
+                            data[0] = username;
                             data[1] = password;   //192.168.1.101 http://192.168.64.2/test_login/signup.php http://192.168.64.2/ http://192.168.64.2/new_post_test/post_signup.php http://192.168.64.2/test_login/signup.php
                             PutData putData = new PutData("https://preetojhadatabasetrail.000webhostapp.com/signup_login_test/login.php", "POST", field, data);
                             if (putData.startPut()) {
